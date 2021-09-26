@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiment No.: 1-2</title>
+</head>
+<body bgcolor = orange>
+<script>
+        function validateForm() {
+            // Part A
+
+            const values = [
+                document.forms["myForm"]["tagline"].value,
+                document.forms["myForm"]["color"].value,
+                document.forms["myForm"]["size"].value,
+                document.forms["myForm"]["payment"].value,
+            ];
+
+            const hasEmptyFields = Object.values(values).some(
+                (element) => element === ""
+            );
+
+            if (hasEmptyFields) {
+                alert("Please fill in all fields");
+                return;
+            }
+
+            // Part B
+
+            document.getElementById("tagline").value = "";
+            var ele = document.getElementsByName("color");
+            for (var i = 0; i < ele.length; i++) ele[i].checked = false;
+            var ele = document.getElementsByName("payment");
+            for (var i = 0; i < ele.length; i++) ele[i].checked = false;
+
+            const receipt = {
+                shirt_tagline: values[0],
+                color: values[1],
+                size: values[2],
+                payment_method: values[3],
+            };
+
+            const receipt_formatted = `Thank you for shopping!\nHere's your receipt:\nTagline: ${values[0]}\nColor: ${values[1]}\nSize: ${values[2]}\nPayment Method: ${values[3]}`;
+
+            alert(receipt_formatted);
+        }
+
+        const form = document.getElementById("shirt_cart");
+
+        form.addEventListener("submit", (event) => {
+            // stop form submission
+            event.preventDefault();
+        });
+    </script>
+<form>
+<label for="tag">Tagline: </label><br>
+<input type="text" id="tag" name="tag"><br><br>
+<label for="color">Colour:</label><br>
+<input type="color" id="color" name="color"><br><br>
+<label for="size">Size:</label><br>
+<select name="size" id="size">
+<option value="null" selected disabled hidden>Select size</option>
+<option value="x">X</option>
+<option value="m">M</option>
+<option value="l">L</option>
+<option value="xl">XL</option>
+</select><br><br>
+<label for="quantity">Quantity:</label><br>
+<input type="number" id="quantity" name="quantity"><br><br>
+<label for="date">Date:</label><br>
+<input type="date" id="date" name="date"><br><br>
+<label for="delivery">Delivery address:</label><br>
+<textarea id="delivery" name="delivery" rows="5" cols="30"></textarea> <br><br>
+<label for="email">Email:</label><br>
+<input type="email" id="email" name="email"><br><br>
+<input type="submit" name="submit_button" id="submit_button">
+</form>
+<h1></h1>
+</body>
+</html>
