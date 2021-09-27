@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<!-- Title of Page -->
+<title>Customize T-Shirt Form</title>
+<style>
+table,td,tr{
+text-align: left;
+text-shadow: grey;
+font-family:Georgia, 'Times New Roman', Times, serif;
+color: black;
+background-color: violet;
+border: 1px;
+width:auto;
+table-layout: auto;
+}
+table{
+border-collapse:collapse;
+border-spacing:10px;
+margin:25px auto;
+border-radius:15px;
+border-style:dotted;
+border-collapse:collapse;
+padding:20px;
+}
+img{
+height:40px ;
+padding-right: 50px;
+display: inline-block;
+}
+body{
+background: url("bg.jpg");
+}
+table{
+box-shadow: 1px 2px 20px 12px rgba(255, 255, 255, 0.699);
+}
+#reset{
+background-color: rgb(255, 67, 67) ;
+display: block;
+float: left;
+font-weight: 800;
+margin-left: 200px;
+box-shadow: 1px 2px 20px 5px rgba(255, 67, 67, 0.575);
+}
+#submit{
+background-color: rgb(83, 134, 0);
+display: block;
+float: RIGHT;
+font-weight: 800;
+margin-right: 200px;
+box-shadow: 1px 2px 20px 5px rgba(83, 134, 0, 0.575);
+}
+tb{
+color: red;
+font-weight: bold;
+font-size: large;
+}
+</style>
+</head>
+<body >
+<script>
+function validateForm() {
+const values = [
+document.forms["tshirt"]["tagline"].value,
+document.forms["tshirt"]["size"].value,
+document.forms["tshirt"]["colour"].value,
+document.forms["tshirt"]["taglinecolour"].value,
+document.forms["tshirt"]["quantity"].value,
+document.forms["tshirt"]["address"].value,
+document.forms["tshirt"]["city"].value,
+document.forms["tshirt"]["pincode"].value,
+document.forms["tshirt"]["state"].value,
+document.forms["tshirt"]["country"].value,
+document.forms["tshirt"]["deliverydate"].value,
+];
+const receipt_formatted = `Thank you for shopping!\nReceipt:\nDate of receipt: ${new Date().toLocaleDateString(
+"UK"
+)}\nTagline: ${values[0]}\nSize: ${values[1]}\nColour: ${values[2]
+}\nTagline_Clor: ${values[3]}\nQuntity: ${values[4]}\nAddress: ${values[5]}\nCity: ${values[6]
+}\nPincode: ${values[7]}\nState: ${values[8]}\nCountry: ${values[9]
+}\nDelivery Date: ${values[9]}`;
+alert(receipt_formatted);
+}
+const form = document.getElementById("shirt_cart");
+form.addEventListener("submit", (event) => {
+// stop form submission
+event.preventDefault();
+});
+</script>
+<form onsubmit="validateForm()" id="shirt_cart" name="tshirt" >
+<table align="center" cellpadding= "20" >
+<tbody>
+<tr>
+<td colspan="2">
+<h2 align="center">THE T-SHIRT MART <img src="title.png" ></img></h2>
+</td>
+</tr>
+<tr>
+<td>
+<b>T-shirt Tagline:</b>
+</td>
+<td>
+<input type="text" name="tagline" id="tagline" maxlength="50" placeholder="After all this? ALWAYS!!!" >
+&nbsp;&nbsp;
+<small> <tb>*</tb>Maximum 50 characters are allowed</small>
+</td>
+<script type="text/javascript">
+document.getElementById("tagline").onkeypress =
+function (e) {
+var e = window.event || e;
+var keyunicode = e.charCode || e.keyCode;
+return (keyunicode >= 65 &&
+keyunicode <= 90) ||
+(keyunicode >= 97 &&
+keyunicode <= 122) ||
+(keyunicode >= 48 &&
+keyunicode <= 57) ||
+keyunicode == 8 ||
+keyunicode == 32
+? true
+: false;
+};
+</script>
+</tr>
+<tr>
+<td>
+<b>Colour:</b>
+</td>
+<td>
+<select name="colour" id="colour">
+<option value="black">BLACK</option>
+<option value="white">WHITE</option>
+<option value="blue">BLUE</option>
+<option value="green">GREEN</option>
+<option value="yellow">YELLOW</option>
+<option value="red">RED</option>
+<option value="purple">PURPLE</option>
+<option value="pink">PINK</option>
+<option value="orange">ORANGE</option>
+<option value="lilac">LILAC</option>
+<option value="grey">GREY</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>
+<b>Tagline Colour:</b>
+</td>
+<td>
+<select name="taglinecolour" id="taglinecolour">
+<option value="tagineblack">BLACK</option>
+<option value="taginewhite">WHITE</option>
+<option value="tagineblue">BLUE</option>
+<option value="taginegreen">GREEN</option>
+<option value="tagineyellow">YELLOW</option>
+<option value="taginered">RED</option>
+<option value="taginepurple">PURPLE</option>
+<option value="taginepink">PINK</option>
+<option value="tagineorange">ORANGE</option>
+<option value="taginelilac">LILAC</option>
+<option value="taginegrey">GREY</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>
+<b>Size:</b>
+</td>
+<td>
+<input type="radio" name="size" id="size" value="xs" required>
+XS&nbsp;&nbsp;
+<input type="radio" name="size" id="size" value="s" required>
+S&nbsp;&nbsp;
+<input type="radio" name="size" id="size" value="l" required>
+L&nbsp;&nbsp;
+<input type="radio" name="size" id="size" value="xl" required>
+XL&nbsp;&nbsp;
+<input type="radio" name="size" id="size" value="xxl" required>
+XXL&nbsp;&nbsp;
+<input type="radio" name="size" id="size" value="xxxl" required>
+XXXL&nbsp;&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<b>Quantity:</b>
+</td>
+<td>
+<input type="number" name="quantity" id="quantity" max="4" min="1" placeholder="1" required>
+&nbsp;&nbsp;
+<small><tb>*</tb>Maximum 4 pieces allowed</small>
+</td>
+<script type="text/javascript">
+document.getElementById("quantity").onkeypress =
+function (e) {
+var e = window.event || e;
+var keyunicode = e.charCode || e.keyCode;
+return keyunicode >= 48 && keyunicode <= 52
+? true
+: false;
+};
+</script>
+</tr>
+<tr>
+<td colspan="2">
+<hr color="#FFF66C">
+<h2 align="center">Delivery Informatin</h2>
+</td>
+</tr>
+<tr>
+<td>
+<b>First Name:</b>
+</td>
+<td>
+<input type="text" name="fname" id="fname" maxlength="18" placeholder="Harold" >
+&nbsp;&nbsp;
+<small> <tb>*</tb>Maximum 18 Characters allowed</small>
+</input>
+</td>
+<script type="text/javascript">
+document.getElementById("fname").onkeypress =
+function (e) {
+var e = window.event || e;
+var keyunicode = e.charCode || e.keyCode;
+return (keyunicode >= 65 &&
+keyunicode <= 90) ||
+(keyunicode >= 97 &&
+keyunicode <= 122) ||
+keyunicode == 8 ||
+keyunicode == 32
+? true
+: false;
+};
+</script>
+</tr>
+<tr>
+<td>
+<b>Middle Name:</b>
+</td>
+<td>
+<input type="text" name="mname" id="mname" maxlength="18" placeholder="Ron" >
+&nbsp;&nbsp;
+<small> <tb></tb>Maximum 18 Characters allowed</small>
+</input>
+</td>
+<script type="text/javascript">
+document.getElementById("mname").onkeypress =
+function (e) {
+var e = window.event || e;
+var keyunicode = e.charCode || e.keyCode;
+return (keyunicode >= 65 &&
+keyunicode <= 90) ||
+(keyunicode >= 97 &&
+keyunicode <= 122) ||
+keyunicode == 8 ||
+keyunicode == 32
+? true
+: false;
+};
+</script>
+</tr>
+<tr>
+<td>
+<b>Last Name:</b>
+</td>
+<td>
+<input type="text" name="lname" id="lname" maxlength="18" placeholder="Kapoor" >
+&nbsp;&nbsp;
+<small> <tb>*</tb>Maximum 18 Characters allowed</small>
+</input>
+</td>
+<script type="text/javascript">
+document.getElementById("lname").onkeypress =
+function (e) {
+var e = window.event || e;
+var keyunicode = e.charCode || e.keyCode;
+return (keyunicode >= 65 &&
+keyunicode <= 90) ||
+(keyunicode >= 97 &&
+keyunicode <= 122) ||
+keyunicode == 8 ||
+keyunicode == 32
+? true
+: false;
+};
+</script>
+</tr>
+<tr>
+<td>
+<b>Mobile Number:</b>
+</td>
+<td>
+<input type="text" name="mobilenumber" id="mobilenumber" maxlength="10"placeholder="1234567890" >
+&nbsp;&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+<b>Address:</b>
+</td>
+<td>
+<textarea name="address" id="address" rows="6" cols="40" required></textarea>
+</td>
+</tr>
+<tr>
+<td>
+<b>City:</b>
+</td>
+<td>
+<input type="text" name="city" id="city" maxlength="30" placeholder="Mumbai" required>
+&nbsp;&nbsp;
+<small> <tb>*</tb>Maximum 30 characters allowed</small>
+</td>
+<script type="text/javascript">
+document.getElementById("city").onkeypress =
+function (e) {
+var e = window.event || e;
+var keyunicode = e.charCode || e.keyCode;
+return (keyunicode >= 65 &&
+keyunicode <= 90) ||
+(keyunicode >= 97 &&
+keyunicode <= 122) ||
+keyunicode == 8 ||
+keyunicode == 32
+? true
+: false;
+};
+</script>
+</tr>
+<tr>
+<td>
+<b>State:</b>
+</td>
+<td>
+<input type="text" name="state" maxlength="30" id="state" placeholder="Maharashtra" required>
+&nbsp;&nbsp;
+<small> <tb>*</tb>Maximum 30 characters allowed</small>
+</td>
+<script type="text/javascript">
+document.getElementById("state").onkeypress =
+function (e) {
+var e = window.event || e;
+var keyunicode = e.charCode || e.keyCode;
+return (keyunicode >= 65 &&
+keyunicode <= 90) ||
+(keyunicode >= 97 &&
+keyunicode <= 122) ||
+keyunicode == 8 ||
+keyunicode == 32
+? true
+: false;
+};
+</script>
+</tr>
+<tr>
+<td>
+<b>Country:</b>
+</td>
+<td>
+<input type="text" name="country" id="country" maxlength="30" placeholder="India" required>
+&nbsp;&nbsp;
+<small> <tb>*</tb>Maximum 30 characters allowed</small>
+</td>
+<script type="text/javascript">
+document.getElementById("country").onkeypress =
+function (e) {
+var e = window.event || e;
+var keyunicode = e.charCode || e.keyCode;
+return (keyunicode >= 65 &&
+keyunicode <= 90) ||
+(keyunicode >= 97 &&
+keyunicode <= 122) ||
+keyunicode == 8 ||
+keyunicode == 32
+? true
+: false;
+};
+</script>
+</tr>
+<tr>
+<td>
+<b>Pincode:</b>
+</td>
+<td>
+<input type="text" name="pincode" id="pincode" maxlength="6" placeholder="000000" required>
+&nbsp;&nbsp;
+<small> <tb>*</tb>Pincode must contain 6 digits</small>
+</td>
+</tr>
+<tr>
+<td>
+<b>Delivery Date:</b>
+</td>
+<td>
+<input type="date" name="deliverydate" id="deliverydate" min="2021-10-05" required>
+&nbsp;&nbsp;
+</td>
+</tr>
+<tr>
+<td colspan="2" align ="center">
+<br><br>
+<input type="reset" id="reset" value = "RESET">
+<input type="submit" id="submit" value = "SUBMIT" >
+</td>
+</tr>
+</tbody>
+</table>
+</form>
+</body>
+</html>v
