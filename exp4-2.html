@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width,
- 
 initial-scale=1.0" />
 <title>Exp 4-2</title>
 </head>
@@ -21,21 +20,39 @@ placeholder="Enter string or 0 for error"
 <button type="submit" onclick="return checkError()">Submit</button>
 </body>
 <script>
-// Creating a Student Object const student1 = {
-name: "Rakshita Danee", class_name: "D15A", roll_no: 11,
-};
-console.log("Student 1: ", student1); class Student {
-constructor(name, class_name, roll_no) { this.name = name;
-this.class_name = class_name; this.roll_no = roll_no;
+// Creating a Student Object 
+const student1 = {name: "Rakshita Danee", 
+		class_name: "D15A", 
+		roll_no: 11};
+console.log("Student 1: ", student1); 
+class Student 
+{
+	constructor(name, class_name, roll_no) 
+	{	this.name = name;
+		this.class_name = class_name; 
+		this.roll_no = roll_no;
+	}
 }
-}
-const student2 = new Student("Shubham", "D15A", 33); console.log("Student 2: ", student2);
-// Use of Prototype Student.prototype.nationality = "Indian"; console.log("Student 2: ", student2);
-// Generating an Exception function checkError() {
-const value = document.getElementById("error_checking").value; console.log(value);
-if (isNaN(value) || value == 0) { throw new Error("Invalid Input ");
-} else { console.log("Valid");
-}
+const student2 = new Student("Shubham", "D15A", 33); 
+console.log("Student 2: ", student2);
+// Use of Prototype 
+Student.prototype.nationality = "Indian"; 
+Student.prototype.color = "pink"; 
+console.log("Student 2: ", student2);
+
+// Generating an Exception 
+function checkError() 
+{	
+	const value = document.getElementById("error_checking").value; 
+	console.log(value);
+	if (isNaN(value) || value == 0) 
+	{
+		 throw new Error("Invalid Input ");
+	} 
+	else 
+	{
+		 console.log("Valid");
+	}
 }
 </script>
 </html>
